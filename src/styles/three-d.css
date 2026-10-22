@@ -1,0 +1,210 @@
+/* Three.js views share the box of the SVG they replace; the SVG keeps the layout
+   and returns as the fallback when 3D is unavailable or switched off. */
+.view-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.view-3d canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.view-3d.is-dragging canvas {
+  cursor: grabbing;
+}
+.view-3d::after {
+  content: 'Arrastrá para girar';
+  position: absolute;
+  right: 12px;
+  bottom: 9px;
+  font:
+    500 8px/1 Inter,
+    sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9fb4ad;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.view-3d.has-dragged::after {
+  opacity: 0;
+}
+.view-3d-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+.view-3d-labels[data-hidden='true'] {
+  opacity: 0;
+}
+.view-3d-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%)
+    translate3d(var(--x, -200px), var(--y, -200px), 0);
+  font:
+    500 10px/1 Inter,
+    sans-serif;
+  letter-spacing: 0.12em;
+  color: #d6e1dd;
+  white-space: nowrap;
+  text-shadow: 0 1px 6px #0b1519;
+}
+.view-3d-label[data-visible='false'] {
+  visibility: hidden;
+}
+.view-3d-label.is-muted {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: #98ada6;
+}
+.view-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 7px 11px;
+  border: 1px solid #c7f4d840;
+  border-radius: 20px;
+  background: #0f1c21d9;
+  color: #d2e8da;
+  font:
+    500 9px/1 Inter,
+    sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.view-toggle::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c7f4d8;
+  box-shadow: 0 0 0 3px #c7f4d81f;
+}
+.view-toggle[data-mode='2d']::before {
+  background: #8fa39d;
+  box-shadow: none;
+}
+.view-toggle:hover {
+  border-color: #c7f4d8;
+  background: #16282ee6;
+}
+.view-note {
+  font-size: 9px;
+  line-height: 1.6;
+  color: #b9cbc3;
+  margin: 8px 0 0;
+}
+.view-note:empty {
+  display: none;
+}
+
+/* Living room inside the experience dialog. */
+.room-stage .view-3d {
+  inset: 10px 0 22px;
+  border-radius: 14px;
+}
+.room-stage[data-view='3d'] .live-room {
+  visibility: hidden;
+}
+.room-stage[data-view='3d'] .room-hotspot {
+  left: 0;
+  top: 0;
+  z-index: 2;
+  transform: translate(-50%, -50%)
+    translate3d(var(--hx, -200px), var(--hy, -200px), 0);
+}
+.room-stage[data-view='3d'] .room-hotspot[data-visible='false'] {
+  visibility: hidden;
+}
+.room-stage .room-live-label,
+.room-stage .room-custom-label {
+  z-index: 2;
+}
+.room-stage .view-toggle {
+  position: absolute;
+  left: 12px;
+  bottom: 32px;
+  z-index: 3;
+}
+
+/* Floor plan of the automation explorer. */
+.lab-plan[data-view='3d'] .lab-floorplan {
+  visibility: hidden;
+}
+.lab-plan[data-view='3d'] .lab-light-point {
+  left: 0;
+  top: 0;
+  z-index: 2;
+  transform: translate(-50%, -50%)
+    translate3d(var(--hx, -200px), var(--hy, -200px), 0);
+}
+.lab-plan[data-view='3d'] .lab-light-point[data-visible='false'] {
+  visibility: hidden;
+}
+.lab-plan .lab-map-key {
+  z-index: 2;
+}
+.lab-plan .view-toggle {
+  position: absolute;
+  top: 10px;
+  right: 24px;
+  z-index: 3;
+}
+.solution-lab .view-note {
+  margin: 10px 24px 0;
+}
+@media (max-width: 1000px) and (min-width: 651px) {
+  .lab-plan .view-toggle {
+    right: 18px;
+  }
+  .solution-lab .view-note {
+    margin-inline: 18px;
+  }
+}
+@media (max-width: 650px) {
+  .view-toggle {
+    min-height: 36px;
+    font-size: 10px;
+  }
+  /* Phones get a taller stage while the 3D view is active. */
+  .room-stage[data-view='3d'] .live-room {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+  .lab-plan[data-view='3d'] {
+    aspect-ratio: 1 / 1;
+  }
+  .view-3d::after {
+    font-size: 7px;
+  }
+  .lab-plan .view-toggle {
+    right: 17px;
+  }
+  .solution-lab .view-note {
+    margin-inline: 17px;
+    font-size: 10px;
+  }
+  .view-note {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .view-3d::after,
+  .view-3d-labels,
+  .view-toggle {
+    transition: none !important;
+  }
+}

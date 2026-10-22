@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+coverage/
+test-results/
+playwright-report/
+output/
+# Configuración local de herramientas de desarrollo
+.claude/

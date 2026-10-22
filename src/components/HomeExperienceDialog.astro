@@ -1,0 +1,35 @@
+---
+import HomeLab from './HomeLab.astro';
+import Icon from './Icon.astro';
+---
+
+<dialog
+  id="home-experience-dialog"
+  class="home-experience-dialog"
+  aria-labelledby="home-experience-title"
+  aria-describedby="home-experience-description"
+>
+  <div class="home-experience-panel">
+    <header class="home-experience-header">
+      <div>
+        <p class="home-experience-label">HAUSET / EXPERIENCIA</p>
+        <h2 id="home-experience-title">Entrá. Probá. Imaginá.</h2>
+        <p id="home-experience-description">
+          Una sala. Tres escenas. Todo a tu manera.
+        </p>
+      </div>
+      <button
+        type="button"
+        class="home-experience-close"
+        data-home-close
+        aria-label="Cerrar experiencia y volver a la página"
+        autofocus
+      >
+        <Icon name="close" size={21} />
+      </button>
+    </header>
+    <div class="home-experience-content">
+      <HomeLab />
+    </div>
+  </div>
+</dialog>

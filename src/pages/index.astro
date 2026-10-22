@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Brand from '../components/Brand.astro';
+import Icon from '../components/Icon.astro';
+import Experience from '../components/Experience.astro';
+import Solutions from '../components/Solutions.astro';
+import TeamStory from '../components/TeamStory.astro';
+import QuoteWizard from '../components/QuoteWizard.astro';
+import { asset, site } from '../data/site';
+const faqs = [
+  {
+    q: '¿Mi casa tiene que ser nueva para automatizarla?',
+    a: 'No necesariamente. Hay soluciones para viviendas existentes. Revisamos tu instalación y tus equipos antes de recomendarte una opción compatible. Podés empezar por una necesidad puntual.',
+  },
+  {
+    q: '¿Tengo que hacerlo todo de una vez?',
+    a: 'Podés empezar por lo que más necesitás y crecer por etapas. Diseñamos una propuesta según tus prioridades, tu espacio y tu presupuesto.',
+  },
+  {
+    q: '¿Me ayudan a elegir y a usar los equipos?',
+    a: 'Sí. Te explicamos las opciones, configuramos la solución y te mostramos cómo usarla. El alcance del soporte y las garantías se detalla en tu propuesta.',
+  },
+  {
+    q: '¿Atienden hogares y negocios en Costa Rica?',
+    a: 'Trabajamos con espacios residenciales y comerciales. Contanos dónde está tu propiedad para confirmar disponibilidad y coordinar el siguiente paso.',
+  },
+];
+---
+
+<Layout>
+  <div class="reading-progress" aria-hidden="true">
+    <span></span>
+  </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <Brand />
+      <button
+        class="menu-toggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        <Icon name="menu" />
+      </button>
+      <nav id="navigation" aria-label="Navegación principal">
+        <a href="#soluciones">Soluciones</a>
+        <a href="#equipo">El equipo</a>
+        <a href="#tu-proyecto">Tu proyecto</a>
+        <a class="nav-cta" href="#tu-proyecto" data-quote-entry="navigation">
+          Preparar consulta <Icon name="arrow" size={17} />
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido">
+    <Experience />
+    <nav class="chapter-nav" aria-label="Tu recorrido por HAUSET">
+      <a href="#soluciones" aria-current="location">
+        <span>01</span> Soluciones
+      </a>
+      <a href="#equipo">
+        <span>02</span> El equipo
+      </a>
+      <a href="#tu-proyecto">
+        <span>03</span> Tu proyecto
+      </a>
+    </nav>
+    <div class="brand-strip">
+      <div class="container">
+        <span>Una vida más simple.</span>
+        <span>
+          <Icon name="spark" size={19} /> Automatización
+        </span>
+        <span>
+          <Icon name="shield" size={19} /> Seguridad
+        </span>
+        <span>
+          <Icon name="wifi" size={19} /> Redes
+        </span>
+        <span class="strip-location">Desde Costa Rica, con vos.</span>
+      </div>
+    </div>
+    <section class="manifesto section">
+      <div class="container manifesto-layout">
+        <p class="eyebrow reveal">
+          <span></span> Lo inteligente se siente
+        </p>
+        <p class="manifesto-text reveal">
+          La mejor tecnología
+          <br />
+          es la que te deja
+          <br />
+          <span>
+            disfrutar más <em>tu vida.</em>
+          </span>
+        </p>
+        <span class="manifesto-note reveal">
+          AUTOMATIZACIÓN + SEGURIDAD + REDES
+          <br />
+          DISEÑADAS ALREDEDOR DE VOS.
+        </span>
+      </div>
+    </section>
+    <Solutions />
+    <TeamStory />
+    <QuoteWizard />
+    <section class="section faq-section">
+      <div class="container faq-grid">
+        <div class="reveal">
+          <p class="eyebrow">
+            <span></span> Sin complicarte
+          </p>
+          <h2>
+            Buenas preguntas.
+            <br />
+            <em>Respuestas claras.</em>
+          </h2>
+          <a href="#tu-proyecto" data-quote-entry="faq" class="text-link">
+            Preparar mi consulta <Icon name="arrow" size={20} />
+          </a>
+        </div>
+        <div class="faq-list reveal">
+          {faqs.map((faq) => (
+            <details>
+              <summary>
+                {faq.q}
+                <Icon name="plus" size={21} />
+              </summary>
+              <div>
+                <p>{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="closing-section">
+      <div class="container">
+        <p class="eyebrow light reveal">
+          <span class="live-dot"></span> Acá empieza algo bueno
+        </p>
+        <a
+          class="closing-link reveal"
+          href="#tu-proyecto"
+          data-quote-entry="closing"
+        >
+          <span>
+            Hagamos que tu espacio
+            <br />
+            se sienta <em>más tuyo.</em>
+          </span>
+          <span class="closing-arrow">
+            <Icon name="arrow" size={54} />
+          </span>
+        </a>
+        <div class="closing-bottom reveal">
+          <p>
+            Vos ponés la idea.
+            <br />
+            Nosotros, las ganas de hacerla realidad.
+          </p>
+          <span>
+            PREPARAR MI CONSULTA <Icon name="arrow" size={21} />
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <Brand footer />
+        <div class="footer-contact">
+          <a href={site.phoneHref}>{site.phone}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </div>
+        <a
+          class="instagram-link"
+          href={site.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="instagram" size={21} /> @hausetcr{' '}
+          <Icon name="arrow" size={18} />
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} HAUSET · Costa Rica.</span>
+        <a href={asset('privacidad/')}>Privacidad</a>
+        <span>Pura vida. Pura tecnología.</span>
+      </div>
+    </div>
+  </footer>
+  <a
+    class="consult-fab"
+    href="#tu-proyecto"
+    data-quote-entry="sticky"
+    aria-label="Preparar mi consulta para HAUSET"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <img
+      class="consult-fab-avatar"
+      src={asset('images/founders-real.webp')}
+      width="1024"
+      height="877"
+      alt=""
+      loading="lazy"
+    />
+    <span class="consult-fab-caption">TU ESPACIO, A TU MANERA.</span>
+    <span>Preparar mi consulta</span>
+    <Icon name="arrow" size={19} />
+  </a>
+  <script src="../scripts/main.ts"></script>
+</Layout>

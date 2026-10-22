@@ -1,0 +1,180 @@
+.home-experience-dialog {
+  position: fixed;
+  inset: 36px auto auto 48px;
+  width: min(520px, calc(100vw - 96px));
+  max-width: 520px;
+  max-height: calc(100vh - 72px);
+  max-height: calc(100dvh - 72px);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #edf1e7;
+  background: #15232a;
+  border: 1px solid #d4e2d933;
+  border-radius: 23px;
+  box-shadow: 0 24px 100px #0611154d;
+}
+.home-experience-dialog::backdrop {
+  background: rgb(9 19 23 / 0.38);
+  backdrop-filter: blur(2px);
+}
+.home-experience-panel {
+  max-height: calc(100vh - 72px);
+  max-height: calc(100dvh - 72px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-padding-top: 148px;
+  scrollbar-width: thin;
+  scrollbar-color: #82988d #15232a;
+}
+.home-experience-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 24px 24px 21px;
+  border-bottom: 1px solid #d7e6dd1a;
+  background: #15232af5;
+}
+.home-experience-header > div {
+  min-width: 0;
+}
+.home-experience-label {
+  color: #b5d1bd;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  margin: 0 0 10px;
+}
+.home-experience-header h2 {
+  color: #f0f2e8;
+  font-size: clamp(24px, 2.3vw, 29px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+}
+.home-experience-header #home-experience-description {
+  color: #b5c8bf;
+  font-size: 10px;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+.home-experience-close {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d7e6dd40;
+  border-radius: 50%;
+  color: #e2eee2;
+  background: #d7e6dd0a;
+  transition: background 150ms;
+}
+.home-experience-close:hover {
+  background: #d7e6dd1c;
+}
+.home-experience-dialog :focus-visible {
+  outline-color: #c7f4d8;
+}
+.home-experience-content {
+  min-width: 0;
+}
+/* Isolate the mounted simulator from its former hero placement and animations. */
+.home-experience-dialog .home-lab {
+  width: 100%;
+  max-width: none;
+  order: initial;
+  align-self: auto;
+  margin: 0;
+  padding: 22px 24px 24px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  animation: none;
+  transform: none;
+  opacity: 1;
+}
+.home-experience-dialog .home-lab .console-intro {
+  padding-top: 20px;
+}
+.home-experience-dialog .home-lab .console-intro h2 {
+  color: #edf1e7;
+}
+@media (min-width: 651px) and (max-width: 1000px) {
+  .home-experience-dialog {
+    inset: 28px auto auto 28px;
+    width: min(480px, calc(100vw - 56px));
+  }
+}
+@media (max-width: 650px) {
+  .home-experience-dialog {
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 90vh;
+    max-height: 90dvh;
+    border-radius: 25px 25px 0 0;
+    border-bottom: 0;
+    box-shadow: 0 -15px 70px #0611154d;
+  }
+  .home-experience-panel {
+    max-height: 90vh;
+    max-height: 90dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .home-experience-header {
+    padding: 21px max(19px, env(safe-area-inset-right, 0px)) 17px
+      max(19px, env(safe-area-inset-left, 0px));
+    gap: 10px;
+  }
+  .home-experience-header h2 {
+    font-size: clamp(24px, 6.7vw, 29px);
+  }
+  .home-experience-label {
+    font-size: 8px;
+    margin-bottom: 8px;
+  }
+  .home-experience-header #home-experience-description {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  .home-experience-dialog .home-lab {
+    padding: 19px max(19px, env(safe-area-inset-right, 0px)) 22px
+      max(19px, env(safe-area-inset-left, 0px));
+  }
+  .home-experience-dialog .home-lab .console-intro h2 {
+    font-size: clamp(25px, 7vw, 32px);
+  }
+}
+@media (max-width: 360px) {
+  .home-experience-panel {
+    scroll-padding-top: 164px;
+  }
+  .home-experience-header {
+    padding-inline: 16px;
+  }
+  .home-experience-header h2 {
+    font-size: 24px;
+  }
+  .home-experience-dialog .home-lab {
+    padding-inline: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-experience-dialog,
+  .home-experience-dialog::backdrop,
+  .home-experience-dialog *,
+  .home-experience-dialog *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

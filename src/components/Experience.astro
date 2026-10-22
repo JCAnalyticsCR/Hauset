@@ -1,0 +1,139 @@
+---
+import Icon from './Icon.astro';
+import { asset } from '../data/site';
+import HomeExperienceDialog from './HomeExperienceDialog.astro';
+---
+
+<section
+  class="experience"
+  id="inicio"
+  data-scene="welcome"
+  aria-labelledby="hero-title"
+>
+  <picture class="experience-image">
+    <source
+      media="(max-width: 1000px)"
+      srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E"
+    />
+    <img
+      src={asset('images/hero-experience.webp')}
+      width="1600"
+      height="900"
+      alt="Visualización del equipo HAUSET preparando un hogar conectado al atardecer"
+      fetchpriority="high"
+    />
+  </picture>
+  <div class="experience-shade"></div>
+  <div class="light-bloom bloom-one"></div>
+  <div class="light-bloom bloom-two"></div>
+  <div class="container experience-layout">
+    <div class="hero-copy">
+      <p class="eyebrow light">
+        <span class="live-dot"></span> Automatización · Seguridad · Redes /
+        Costa Rica
+      </p>
+      <h1 id="hero-title">
+        <span>Tu espacio.</span>
+        <span class="hero-rhythm">Tu ritmo.</span>
+        <em>Tu manera.</em>
+      </h1>
+      <p class="hero-description">
+        Automatización, cámaras de seguridad y redes WiFi para tu casa o
+        negocio. Diseñamos e instalamos una solución a tu medida.
+      </p>
+      <a
+        class="button button-primary"
+        href="#tu-proyecto"
+        data-quote-entry="hero"
+      >
+        Preparar mi consulta <Icon name="arrow" size={20} />
+      </a>
+      <p class="hero-reassurance">
+        Propuesta según tus necesidades y presupuesto.
+      </p>
+      <a class="hero-secondary" href="#equipo">
+        Primero, conocenos{' '}
+        <span class="mini-faces">
+          <img
+            src={asset('images/founders-real.webp')}
+            width="1024"
+            height="877"
+            alt=""
+          />
+        </span>
+        <Icon name="right" size={17} />
+      </a>
+    </div>
+    <div class="hero-invitation">
+      <div class="hero-portrait">
+        <picture>
+          <source
+            media="(max-width: 1000px)"
+            srcset={asset('images/mobile-home.webp')}
+          />
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='12'/%3E"
+            width="900"
+            height="1200"
+            alt="Escena ilustrativa con dos integrantes de HAUSET, juntos en una sala, usando una tablet y señalando las luces"
+            fetchpriority="high"
+          />
+        </picture>
+        <span class="hero-portrait-tag">
+          <span></span> EL LADO HUMANO DE LA TECNOLOGÍA
+        </span>
+      </div>
+      <div class="hero-invitation-copy" aria-hidden="true">
+        <span class="invitation-line"></span>
+        <p>
+          Lo imaginás.
+          <br />
+          <em>Lo hacemos con vos.</em>
+        </p>
+      </div>
+      <button
+        class="home-invitation-button"
+        type="button"
+        data-home-open
+        aria-controls="home-experience-dialog"
+        aria-haspopup="dialog"
+        aria-label="Pasá, te mostramos. Abrir la casa interactiva"
+      >
+        <span class="invitation-icon" aria-hidden="true">
+          <Icon name="home" size={25} />
+        </span>
+        <span class="invitation-button-copy">
+          <span class="invitation-eyebrow">UNA CASA. TRES MOMENTOS.</span>
+          <strong>Pasá, te mostramos.</strong>
+          <span class="invitation-preview" data-home-preview>
+            Llegar · Cine · Salir
+          </span>
+        </span>
+        <span class="invitation-arrow" aria-hidden="true">
+          <Icon name="arrow" size={21} />
+        </span>
+      </button>
+      <span class="invitation-caption">
+        Tocá y explorá una casa a tu manera.
+      </span>
+      <noscript>
+        <p class="invitation-noscript">
+          Activá JavaScript para explorar la casa o{' '}
+          <a href="#tu-proyecto">conocé cómo empezar tu proyecto</a>.
+        </p>
+      </noscript>
+    </div>
+  </div>
+  <div class="container experience-bottom">
+    <a href="#soluciones">
+      <span class="scroll-stem"></span> BAJÁ Y DESCUBRÍ
+    </a>
+    <span class="hero-photo-credit">
+      Fotografía de fondo creada con IA a partir del equipo real.
+    </span>
+    <span class="hero-room-credit">
+      Escena creada con IA a partir de fotografías del equipo real.
+    </span>
+  </div>
+</section>
+<HomeExperienceDialog />

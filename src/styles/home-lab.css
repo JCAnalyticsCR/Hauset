@@ -1,0 +1,390 @@
+.hero-room-credit {
+  display: none;
+}
+.home-lab {
+  --room-light: 0.8;
+  --curtain-offset: -145px;
+  --lamp-color: #ffd18d;
+  background: linear-gradient(150deg, #1b292ef5, #111e25f5);
+  padding: 22px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.home-lab .console-top {
+  position: static;
+  font-size: 9px;
+}
+.home-lab .console-demo {
+  font-size: 8px;
+  padding: 5px 7px;
+  color: #c6d4d4;
+}
+.home-lab .console-intro {
+  display: block;
+  padding: 20px 0 12px;
+}
+.home-lab .console-intro > p {
+  font-size: 11px;
+}
+.home-lab .console-intro h2 {
+  font-size: clamp(25px, 2.5vw, 34px);
+  letter-spacing: -0.055em;
+}
+.home-lab .console-time {
+  top: 20px;
+  font-size: 10px;
+}
+.room-stage {
+  position: relative;
+  margin: 0 -12px 10px;
+  padding: 10px 0 22px;
+  background: radial-gradient(ellipse at 45% 45%, #354a493b, #111f2600 70%);
+}
+.live-room {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.room-lamp-light,
+.room-bulb {
+  opacity: var(--room-light);
+  transition:
+    opacity 250ms,
+    fill 250ms;
+}
+.room-curtains {
+  transform: translateY(var(--curtain-offset));
+  transition: transform 650ms cubic-bezier(0.25, 0.7, 0.25, 1);
+}
+.room-security-ring {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+[data-armed='true'] .room-security-ring {
+  opacity: 1;
+}
+.room-hotspot {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #c7f4d884;
+  border-radius: 50%;
+  color: #c7f4d8;
+  background: #142c2fe8;
+  position: absolute;
+  box-shadow: 0 0 0 6px #c7f4d80c;
+  transition:
+    background 200ms,
+    box-shadow 200ms;
+}
+.room-hotspot:hover {
+  box-shadow: 0 0 0 9px #c7f4d81c;
+}
+.room-hotspot[aria-pressed='true'] {
+  background: #c7f4d8;
+  color: #1a3830;
+}
+.room-hotspot-light {
+  left: 28%;
+  top: 22%;
+}
+.room-hotspot-curtain {
+  left: 69%;
+  top: 18%;
+}
+.room-hotspot-curtain > span {
+  font-size: 24px;
+  line-height: 1;
+}
+.room-live-label {
+  position: absolute;
+  bottom: 5px;
+  left: 12px;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+  color: #b6c9c4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.room-live-label > span {
+  width: 4px;
+  height: 4px;
+  background: #c7f4d8;
+  border-radius: 50%;
+}
+.room-custom-label {
+  position: absolute;
+  bottom: 1px;
+  right: 10px;
+  font-size: 9px;
+  background: #ffffff0d;
+  color: #d0c2ee;
+  padding: 4px 7px;
+  border-radius: 20px;
+}
+.home-lab .scene-buttons {
+  padding: 0;
+  border: 0;
+  gap: 6px;
+}
+.home-lab .scene-buttons button {
+  min-height: 48px;
+  padding: 10px 4px;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 11px;
+  border-radius: 10px;
+  gap: 7px;
+}
+.home-lab .scene-buttons button[aria-pressed='true'] {
+  background: #c7f4d8;
+  color: #163b2b;
+}
+.home-scene-summary {
+  font-size: 10px;
+  color: #c3d0cf;
+  margin: 13px 0 15px;
+  line-height: 1.7;
+}
+.home-lab .console-details {
+  margin: 0;
+  border-top: 1px solid #ffffff20;
+}
+.home-lab .console-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 46px;
+  cursor: pointer;
+  font-size: 11px;
+  list-style: none;
+  color: #dde8e1;
+}
+.home-lab .console-details > summary > span {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.home-lab .console-details > summary::-webkit-details-marker {
+  display: none;
+}
+.home-lab .console-details[open] > summary > svg {
+  transform: rotate(45deg);
+}
+.home-lab .light-control {
+  padding: 6px 0;
+}
+.home-lab .light-control label {
+  margin: 0;
+  font-size: 11px;
+}
+.home-lab .light-control output {
+  font-size: 11px;
+}
+.home-lab .light-control input {
+  min-height: 44px;
+  height: 44px;
+  accent-color: #c7f4d8;
+}
+.home-tone-control {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #d0dbdd;
+  padding-bottom: 8px;
+}
+.home-tone-control > div {
+  display: flex;
+  gap: 4px;
+}
+.home-tone-control button {
+  min-height: 44px;
+  min-width: 53px;
+  padding: 8px;
+  border: 1px solid #ffffff20;
+  border-radius: 8px;
+  font-size: 10px;
+  color: #c3cfce;
+  background: #ffffff03;
+}
+.home-tone-control button[aria-pressed='true'] {
+  background: #ffffff12;
+  border-color: #c7f4d8;
+  color: #fff;
+}
+.home-security-control {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  border-top: 1px solid #ffffff12;
+  padding: 12px 0;
+  color: #d4dedb;
+  background: none;
+  text-align: left;
+  min-height: 56px;
+}
+.home-security-control > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.home-security-control small {
+  display: block;
+  font-size: 10px;
+  color: #b9c8c3;
+  margin-top: 3px;
+}
+.home-switch {
+  width: 36px;
+  height: 22px;
+  background: #516163;
+  border-radius: 20px;
+  padding: 3px;
+  transition: background 200ms;
+}
+.home-switch::after {
+  content: '';
+  display: block;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  transition: transform 200ms;
+}
+[aria-checked='true'] .home-switch {
+  background: #739d87;
+}
+[aria-checked='true'] .home-switch::after {
+  transform: translateX(14px);
+}
+.home-lab .scene-feedback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.home-add-project {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  min-height: 48px;
+  background: #c7f4d813;
+  border: 1px solid #c7f4d83d;
+  border-radius: 10px;
+  color: #d1f2df;
+  font-size: 11px;
+  text-align: left;
+  transition: background 200ms;
+}
+.home-add-project:hover {
+  background: #c7f4d82b;
+}
+.home-add-project > svg {
+  flex-shrink: 0;
+}
+.home-simulation-note {
+  font-size: 9px;
+  color: #adbfba;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-align: center;
+}
+@media (min-width: 901px) {
+  .experience-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(365px, 440px);
+    gap: clamp(35px, 6vw, 90px);
+    align-items: center;
+  }
+  .experience {
+    padding-top: 150px;
+  }
+}
+@media (min-width: 651px) and (max-width: 900px) {
+  .home-lab {
+    width: 395px;
+    max-width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .hero-photo-credit {
+    display: none;
+  }
+  .hero-room-credit {
+    display: block;
+  }
+  .home-lab {
+    padding: 19px 17px 15px;
+    border-radius: 24px;
+  }
+  .home-lab .console-intro {
+    padding-top: 18px;
+  }
+  .home-lab .console-intro h2 {
+    font-size: clamp(25px, 7vw, 34px);
+  }
+  .home-lab .console-time {
+    top: 19px;
+  }
+  .room-stage {
+    margin: 0 -10px 8px;
+  }
+  .home-lab .scene-buttons button {
+    font-size: 11px;
+    min-height: 49px;
+  }
+  .home-lab .console-details > summary {
+    min-height: 48px;
+  }
+  .home-lab .light-control label,
+  .home-lab .light-control output,
+  .home-tone-control {
+    font-size: 12px;
+  }
+  .home-add-project {
+    font-size: 12px;
+    min-height: 51px;
+  }
+  .home-simulation-note {
+    font-size: 10px;
+  }
+  .home-scene-summary {
+    font-size: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .home-lab {
+    padding: 17px 12px 13px;
+  }
+  .home-lab .console-time {
+    display: none;
+  }
+  .room-live-label {
+    font-size: 7px;
+  }
+  .room-custom-label {
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-lab *,
+  .home-lab *::after {
+    transition: none !important;
+  }
+}

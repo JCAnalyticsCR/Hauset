@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Brand from '../components/Brand.astro';
+import { asset, whatsapp } from '../data/site';
+---
+
+<Layout title="Página no encontrada | HAUSET" noindex>
+  <header class="legal-header">
+    <div class="container">
+      <Brand footer />
+    </div>
+  </header>
+  <main id="contenido" class="container legal-content">
+    <div class="eyebrow">
+      <span></span> Error 404
+    </div>
+    <h1>
+      Este espacio
+      <br />
+      aún no existe.
+    </h1>
+    <p>
+      La página que buscás no está disponible. Volvé al inicio o contanos cómo
+      podemos ayudarte.
+    </p>
+    <a class="button button-dark" href={asset('')}>
+      Volver al inicio
+    </a>
+    <p style="margin-top: 24px">
+      <a href={whatsapp()}>Conversar por WhatsApp</a>
+    </p>
+  </main>
+</Layout>

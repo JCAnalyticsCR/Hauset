@@ -1,0 +1,395 @@
+---
+import Icon from './Icon.astro';
+import { asset, whatsapp } from '../data/site';
+const needs = [
+  {
+    value: 'Automatización e iluminación',
+    label: 'Control y confort',
+    note: 'Luces, escenas y rutinas',
+    icon: 'spark',
+  },
+  {
+    value: 'Seguridad y cámaras',
+    label: 'Más tranquilidad',
+    note: 'Accesos y supervisión',
+    icon: 'shield',
+  },
+  {
+    value: 'Redes y cobertura WiFi',
+    label: 'Mejor conexión',
+    note: 'WiFi y red de tu espacio',
+    icon: 'wifi',
+  },
+  {
+    value: 'Asesoría para empezar',
+    label: 'Quiero orientación',
+    note: 'Definamos por dónde empezar',
+    icon: 'home',
+  },
+];
+---
+
+<section id="tu-proyecto" class="section project-section">
+  <span id="contacto" class="anchor-alias" aria-hidden="true"></span>
+  <div class="container project-layout">
+    <div class="project-copy reveal">
+      <p class="eyebrow">
+        <span class="chapter-number">03</span> De la idea al siguiente paso
+      </p>
+      <h2>
+        Tu espacio.
+        <br />
+        <em>Tu próximo paso.</em>
+      </h2>
+      <p>
+        Armemos una ficha con lo que te importa. Podés empezar con una sola
+        necesidad y afinarla después.
+      </p>
+      <div class="project-promise">
+        <Icon name="check" size={20} />
+        <span>
+          Una conversación con contexto.
+          <br />
+          <strong>Una propuesta a tu medida.</strong>
+        </span>
+      </div>
+      <p class="project-next">
+        Revisamos tu necesidad, definimos el alcance y te presentamos una
+        propuesta antes de coordinar la instalación.
+      </p>
+      <a
+        href={whatsapp()}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        Prefiero escribirles directamente <Icon name="arrow" size={19} />
+      </a>
+    </div>
+    <div
+      class="quote-wizard quote-studio reveal"
+      id="quote-wizard"
+      data-whatsapp="https://wa.me/50660902549"
+    >
+      <div class="wizard-top">
+        <span>TU FICHA DE PROYECTO</span>
+        <span id="wizard-count">01 / 03</span>
+      </div>
+      <ol class="quote-step-nav" aria-label="Pasos de tu consulta">
+        <li>
+          <button type="button" data-quote-step="0" aria-current="step">
+            <span>01</span> Espacio
+          </button>
+        </li>
+        <li>
+          <button type="button" data-quote-step="1" disabled>
+            <span>02</span> Prioridades
+          </button>
+        </li>
+        <li>
+          <button type="button" data-quote-step="2" disabled>
+            <span>03</span> Tu ficha
+          </button>
+        </li>
+      </ol>
+
+      <div class="wizard-step" data-step="0">
+        <h3 class="wizard-question" tabindex="-1">
+          ¿De qué espacio hablamos?
+        </h3>
+        <p class="quote-intro">
+          Elegí una opción. Los detalles son opcionales.
+        </p>
+        <div class="property-options">
+          <button type="button" data-property="Mi casa" aria-pressed="false">
+            <Icon name="home" size={28} />
+            <strong>Mi casa</strong>
+            <span>Para vivir a tu manera.</span>
+            <Icon name="check" size={18} />
+          </button>
+          <button type="button" data-property="Mi negocio" aria-pressed="false">
+            <Icon name="wifi" size={28} />
+            <strong>Mi negocio</strong>
+            <span>Para trabajar mejor.</span>
+            <Icon name="check" size={18} />
+          </button>
+        </div>
+        <details class="quote-disclosure" id="quote-space-details">
+          <summary>
+            Afinar mi espacio <span>Opcional</span>
+            <Icon name="plus" size={18} />
+          </summary>
+          <div class="quote-disclosure-body">
+            <div class="field">
+              <label for="project-context">¿En qué etapa está?</label>
+              <select id="project-context">
+                <option value="">Todavía por definir</option>
+                <option>Espacio existente</option>
+                <option>En construcción o remodelación</option>
+              </select>
+            </div>
+            <div class="quote-dimensions">
+              <div class="field">
+                <label for="project-area">
+                  Área aproximada <span>m²</span>
+                </label>
+                <input
+                  id="project-area"
+                  type="number"
+                  inputmode="decimal"
+                  min="0.01"
+                  max="100000"
+                  step="0.01"
+                  placeholder="Si la conocés"
+                  aria-describedby="quote-dimension-note"
+                />
+              </div>
+              <div class="field">
+                <label for="project-floors">Pisos</label>
+                <input
+                  id="project-floors"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="100"
+                  step="1"
+                  placeholder="Por ejemplo: 2"
+                  aria-describedby="quote-dimension-note"
+                />
+              </div>
+            </div>
+            <p class="quote-help" id="quote-dimension-note">
+              Estos datos orientan la conversación. La distribución y las
+              condiciones se revisan antes de definir una solución.
+            </p>
+          </div>
+        </details>
+        <div class="wizard-actions quote-actions">
+          <button
+            class="button button-dark"
+            type="button"
+            data-quote-next="1"
+            disabled
+          >
+            Elegir mis prioridades <Icon name="right" size={18} />
+          </button>
+        </div>
+      </div>
+
+      <div class="wizard-step" data-step="1" hidden>
+        <h3 class="wizard-question" tabindex="-1">
+          ¿Qué querés resolver primero?
+        </h3>
+        <p class="quote-intro">
+          Podés combinar prioridades. No hace falta elegir equipos.
+        </p>
+        <div class="needs-options">
+          {needs.map((need) => (
+            <button type="button" data-need={need.value} aria-pressed="false">
+              <Icon name={need.icon} size={22} />
+              <span>
+                <strong>{need.label}</strong>
+                <small>{need.note}</small>
+              </span>
+              <Icon name="check" size={17} />
+            </button>
+          ))}
+        </div>
+        <details class="quote-disclosure quote-guidance">
+          <summary>
+            Para orientar la conversación <Icon name="plus" size={18} />
+          </summary>
+          <div class="quote-disclosure-body">
+            <ul id="quote-recommendations"></ul>
+            <p class="quote-help">
+              Son puntos de partida. Equipos, cantidades y alcance se definen
+              después de evaluar tu caso.
+            </p>
+          </div>
+        </details>
+        <details
+          class="quote-disclosure quote-added"
+          data-quote-items-panel
+          hidden
+        >
+          <summary>
+            Ideas que ya elegiste <span data-quote-items-count>0</span>
+            <Icon name="plus" size={18} />
+          </summary>
+          <ul class="quote-items" data-quote-items></ul>
+        </details>
+        <div class="wizard-actions quote-actions">
+          <button
+            class="button button-dark"
+            type="button"
+            data-quote-next="2"
+            disabled
+          >
+            Revisar mi ficha <Icon name="right" size={18} />
+          </button>
+          <button class="wizard-back" type="button" data-quote-back="0">
+            Cambiar espacio
+          </button>
+        </div>
+      </div>
+
+      <div class="wizard-step" data-step="2" hidden>
+        <h3 class="wizard-question" tabindex="-1">
+          Tu idea, lista para conversar.
+        </h3>
+        <p class="quote-intro">
+          Revisá lo elegido. Podés corregirlo antes de continuar.
+        </p>
+        <div
+          class="wizard-summary"
+          id="wizard-summary"
+          aria-label="Tu selección; tocá una opción para editarla"
+        ></div>
+        <p class="quote-context-line" id="quote-context-line"></p>
+        <details
+          class="quote-disclosure quote-added"
+          data-quote-items-panel
+          hidden
+        >
+          <summary>
+            Ideas incorporadas <span data-quote-items-count>0</span>
+            <Icon name="plus" size={18} />
+          </summary>
+          <ul class="quote-items" data-quote-items></ul>
+        </details>
+        <details class="quote-disclosure" id="quote-extra-details">
+          <summary>
+            Ubicación, plazo y comentario <span>Opcional</span>
+            <Icon name="plus" size={18} />
+          </summary>
+          <div class="quote-disclosure-body">
+            <div class="field">
+              <label for="project-location">
+                Cantón o zona <span>Sin dirección exacta</span>
+              </label>
+              <input
+                id="project-location"
+                name="location"
+                placeholder="Por ejemplo: Heredia"
+                autocomplete="address-level2"
+                maxlength="80"
+              />
+            </div>
+            <div class="field">
+              <label for="project-timing">¿Cuándo te gustaría empezar?</label>
+              <select id="project-timing" name="timing">
+                <option value="">Todavía por definir</option>
+                <option>Quiero avanzar pronto</option>
+                <option>En los próximos meses</option>
+                <option>Estoy explorando opciones</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="project-message">
+                ¿Algo más que querás contarnos?
+              </label>
+              <textarea
+                id="project-message"
+                name="message"
+                rows="3"
+                maxlength="500"
+                placeholder="Contanos una rutina, un problema o algo que ya tengás instalado…"
+              ></textarea>
+              <p class="quote-help">
+                <span id="quote-comment-count">0</span> / 500 caracteres
+              </p>
+            </div>
+          </div>
+        </details>
+        <details
+          class="quote-disclosure quote-preview"
+          id="quote-preview-details"
+        >
+          <summary>
+            Ver el mensaje exacto <span id="quote-message-count"></span>
+            <Icon name="plus" size={18} />
+          </summary>
+          <pre
+            id="brief-preview"
+            tabindex="0"
+            aria-label="Mensaje preparado para WhatsApp"
+          ></pre>
+        </details>
+        <p id="quote-length-error" class="quote-error" hidden>
+          El mensaje es muy extenso para este enlace. Acortá el comentario o
+          quitá algunas ideas. Podés copiar o descargar la ficha completa.
+        </p>
+        <div class="wizard-actions quote-actions">
+          <a
+            class="button button-dark"
+            id="wizard-whatsapp"
+            href={whatsapp()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Revisar en WhatsApp <Icon name="whatsapp" size={20} />
+          </a>
+        </div>
+        <div class="quote-export-actions">
+          <button type="button" data-quote-copy>
+            Copiar mensaje
+          </button>
+          <button type="button" data-quote-download>
+            Descargar ficha .txt
+          </button>
+        </div>
+        <button
+          class="wizard-back quote-review-back"
+          type="button"
+          data-quote-back="1"
+        >
+          Cambiar prioridades
+        </button>
+        <p class="wizard-privacy">
+          WhatsApp se abre con este mensaje para que lo revisés y enviés. Esta
+          página no lo envía automáticamente.{' '}
+          <a href={asset('privacidad/')}>Privacidad</a>.
+        </p>
+      </div>
+
+      <p
+        class="quote-feedback"
+        id="quote-feedback"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></p>
+      <details class="quote-draft-panel">
+        <summary>
+          <Icon name="lock" size={17} /> Guardar servicios y espacio aquí{' '}
+          <Icon name="plus" size={17} />
+        </summary>
+        <div class="quote-draft-body">
+          <p>
+            Solo si elegís guardar: servicios, tipo de espacio, etapa, área,
+            pisos y plazo quedan en este navegador. No guardamos ubicación,
+            comentario ni ideas de las demos. Restaurar reemplaza la selección
+            actual de servicios y espacio.
+          </p>
+          <div class="quote-draft-actions">
+            <button type="button" data-quote-save>
+              Guardar selección
+            </button>
+            <button type="button" data-quote-restore>
+              Restaurar selección
+            </button>
+            <button type="button" data-quote-delete>
+              Borrar lo guardado
+            </button>
+          </div>
+        </div>
+      </details>
+      <noscript>
+        <p class="wizard-noscript">
+          Para preparar tu ficha interactiva, activá JavaScript o{' '}
+          <a href={whatsapp()}>conversá directamente por WhatsApp</a>.
+        </p>
+      </noscript>
+    </div>
+  </div>
+</section>

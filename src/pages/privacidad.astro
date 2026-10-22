@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Brand from '../components/Brand.astro';
+import Icon from '../components/Icon.astro';
+import { asset, site } from '../data/site';
+---
+
+<Layout
+  title="Privacidad | HAUSET Costa Rica"
+  description="Cómo se comparte tu consulta con HAUSET y qué datos utiliza este sitio."
+>
+  <header class="legal-header">
+    <div class="container legal-nav">
+      <Brand footer />
+      <a href={asset('')}>
+        Volver al inicio <Icon name="arrow" size={15} />
+      </a>
+    </div>
+  </header>
+  <main id="contenido" class="container legal-content">
+    <p class="eyebrow">
+      <span></span> Tus datos, con claridad
+    </p>
+    <h1>
+      Tu privacidad
+      <br />
+      también importa.
+    </h1>
+    <p class="legal-meta">Última actualización: 22 de octubre de 2026.</p>
+    <p>
+      HAUSET, Costa Rica, utiliza la información que decidís compartir para
+      atender tus consultas sobre automatización, seguridad y redes. Si tenés
+      alguna duda, escribinos a{' '}
+      <a href="mailto:info@hausetcr.com">info@hausetcr.com</a> o llamanos al{' '}
+      <a href={site.phoneHref}>{site.phone}</a>.
+    </p>
+    <h2>Tu consulta, a tu ritmo</h2>
+    <p>
+      El asistente «Tu proyecto» te permite elegir el tipo de espacio y las
+      soluciones que te interesan. Podés agregar una ubicación general, el
+      momento en que te gustaría empezar y un mensaje, todos opcionales. La
+      información se mantiene en la página mientras la usás. También podés
+      incorporar las preferencias que elegiste en los simuladores. No enviamos
+      estas respuestas a HAUSET automáticamente.
+    </p>
+    <h2>Guardar y llevarte tu selección</h2>
+    <p>
+      Si elegís «Guardar selección», el navegador conserva en este dispositivo
+      el tipo de espacio, las opciones de contexto, las dimensiones que hayas
+      indicado, el plazo y los servicios seleccionados. Este guardado es
+      opcional y no incluye tu ubicación, mensaje libre ni los detalles de las
+      escenas. Podés recuperar o borrar la selección desde el asistente. Se
+      conserva hasta que la borres o elimines los datos del sitio en tu
+      navegador.
+    </p>
+    <p>
+      «Copiar» coloca el resumen en tu portapapeles. «Descargar ficha» genera un
+      archivo de texto en tu dispositivo. Estas acciones no envían la consulta a
+      HAUSET. La ficha reúne tus preferencias; el alcance y la propuesta se
+      definen después de revisar tu espacio.
+    </p>
+    <p>
+      Al pulsar «Revisar en WhatsApp», se abre esa plataforma con el resumen
+      incluido en el enlace. WhatsApp puede procesar el enlace y su contenido al
+      abrirse. Revisá el mensaje y tocá Enviar si querés compartirlo con HAUSET.
+      Evitá incluir contraseñas, códigos de acceso, documentos o datos
+      sensibles.
+    </p>
+    <h2>Cuando conversamos</h2>
+    <p>
+      Los datos que nos enviás por WhatsApp o correo se utilizan para
+      responderte, entender tu proyecto, preparar una propuesta y dar
+      seguimiento al servicio que solicités. No vendemos tu información ni
+      tratamos tu consulta como autorización para enviarte publicidad.
+    </p>
+    <p>
+      Conservamos las conversaciones durante el tiempo necesario para atenderlas
+      y cumplir las obligaciones aplicables. Podés pedir acceso, corrección o
+      eliminación de información que ya no sea necesaria escribiendo a{' '}
+      <a href="mailto:info@hausetcr.com">info@hausetcr.com</a>. Podemos
+      solicitar información mínima para verificar tu identidad.
+    </p>
+    <h2>Visitar este sitio</h2>
+    <p>
+      Las imágenes, la tipografía y el video se sirven junto con la página. El
+      video empieza a descargarse cuando decidís reproducirlo. No incorporamos
+      herramientas de analítica ni cookies publicitarias. La selección solo se
+      guarda en el navegador cuando lo solicitás con el control del asistente.
+    </p>
+    <p>
+      GitHub Pages o Railway pueden alojar el sitio, y Cloudflare puede prestar
+      servicios de red. Estos proveedores pueden procesar registros técnicos,
+      como solicitudes y direcciones IP, para operar y proteger el servicio,
+      incluso fuera de Costa Rica.
+    </p>
+    <h2>Enlaces y plataformas externas</h2>
+    <p>
+      Al abrir WhatsApp, Instagram o tu aplicación de correo, se aplican las
+      condiciones y políticas de esas plataformas. Podés consultar las políticas
+      de{' '}
+      <a
+        href="https://www.whatsapp.com/legal/privacy-policy"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WhatsApp
+      </a>
+      ,{' '}
+      <a
+        href="https://privacycenter.instagram.com/policy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+      ,{' '}
+      <a
+        href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+      ,{' '}
+      <a
+        href="https://railway.com/legal/privacy"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Railway
+      </a>{' '}
+      y{' '}
+      <a
+        href="https://www.cloudflare.com/privacypolicy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Cloudflare
+      </a>
+      .
+    </p>
+    <h2>Fotografías y visualizaciones</h2>
+    <p>
+      La página distingue las fotografías reales del equipo de las escenas
+      ilustrativas creadas con inteligencia artificial a partir de esas
+      fotografías. Las visualizaciones no se presentan como proyectos ejecutados
+      ni como testimonios de clientes.
+    </p>
+    <a href={asset('')}>Volver a HAUSET</a>
+  </main>
+  <footer class="legal-footer">
+    <div class="container">
+      © {new Date().getFullYear()} HAUSET · Costa Rica
+    </div>
+  </footer>
+</Layout>

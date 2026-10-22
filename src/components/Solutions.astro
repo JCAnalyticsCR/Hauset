@@ -1,0 +1,664 @@
+---
+import Icon from './Icon.astro';
+import { whatsapp } from '../data/site';
+
+const solutions = [
+  {
+    id: 'automatizacion',
+    need: 'Automatización e iluminación',
+    number: '01',
+    icon: 'spark',
+    label: 'Automatización',
+    title: 'Que tu casa se adelante a vos.',
+    text: 'Luces que acompañan tu día. Escenas para llegar, descansar o salir. Empezamos por lo que más usás y crecemos con vos.',
+    items: [
+      'Iluminación y escenas inteligentes',
+      'Integración con dispositivos compatibles',
+      'Control desde tu celular',
+    ],
+    labTitle: 'Dale vida a cada ambiente.',
+    instruction: 'Tocá una luz en el plano o elegí una escena.',
+    add: 'Sumar iluminación a mi consulta',
+  },
+  {
+    id: 'seguridad',
+    need: 'Seguridad y cámaras',
+    number: '02',
+    icon: 'shield',
+    label: 'Seguridad',
+    title: 'La tranquilidad también se instala.',
+    text: 'No se trata de llenar tu espacio de equipos. Se trata de ver lo que importa y elegir la protección adecuada para tu propiedad.',
+    items: [
+      'Cámaras y monitoreo remoto',
+      'Alarmas y control de acceso',
+      'Diseño según tus puntos de acceso',
+    ],
+    labTitle: 'Mirá tu espacio desde otro ángulo.',
+    instruction: 'Elegí un acceso y compará dos rutinas.',
+    add: 'Sumar seguridad a mi consulta',
+  },
+  {
+    id: 'redes',
+    need: 'Redes y cobertura WiFi',
+    number: '03',
+    icon: 'wifi',
+    label: 'Redes',
+    title: 'Tu WiFi debería llegar donde vos llegás.',
+    text: 'Ese cuarto donde la señal se pierde. La videollamada que se corta. Revisamos tu espacio para diseñar una red que acompañe lo que hacés.',
+    items: [
+      'Access points y cobertura WiFi',
+      'Cableado y redes estructuradas',
+      'Diseño para hogar o negocio',
+    ],
+    labTitle: 'Una red pensada desde el espacio.',
+    instruction: 'Cambiá el diseño, la zona de uso y los obstáculos.',
+    add: 'Sumar redes a mi consulta',
+  },
+];
+const rooms = [
+  { id: 'sala', label: 'Sala', x: 48, y: 44, w: 224, h: 144, cx: 160, cy: 112 },
+  {
+    id: 'dormitorio',
+    label: 'Dormitorio',
+    x: 280,
+    y: 44,
+    w: 188,
+    h: 144,
+    cx: 374,
+    cy: 112,
+  },
+  {
+    id: 'cocina',
+    label: 'Cocina',
+    x: 48,
+    y: 196,
+    w: 224,
+    h: 102,
+    cx: 160,
+    cy: 245,
+  },
+  {
+    id: 'entrada',
+    label: 'Entrada',
+    x: 280,
+    y: 196,
+    w: 188,
+    h: 102,
+    cx: 374,
+    cy: 245,
+  },
+];
+---
+
+<section id="soluciones" class="section solutions-section" data-solutions-lab>
+  <span id="servicios" class="anchor-alias" aria-hidden="true"></span>
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <p class="eyebrow">
+          <span class="chapter-number">01</span> Diseñamos alrededor de vos
+        </p>
+        <h2>
+          Empezamos por
+          <br />
+          <em>lo que necesitás.</em>
+        </h2>
+      </div>
+      <p>
+        Un mismo espacio. Tres posibilidades.
+        <br />
+        Explorá, probá y armá tu consulta.
+      </p>
+    </div>
+    <div
+      class="solutions-tabs reveal"
+      role="tablist"
+      aria-label="Soluciones HAUSET"
+    >
+      {solutions.map((solution, index) => (
+        <button
+          id={`tab-${solution.id}`}
+          type="button"
+          role="tab"
+          aria-selected={index === 0 ? 'true' : 'false'}
+          aria-controls={`panel-${solution.id}`}
+          tabindex={index === 0 ? 0 : -1}
+          data-lab-tab={solution.id}
+        >
+          <span>/{solution.number}</span>
+          <Icon name={solution.icon} size={20} />
+          {solution.label}
+          <Icon name="arrow" size={18} />
+        </button>
+      ))}
+    </div>
+    <div class="solutions-panels reveal">
+      {solutions.map((solution) => (
+        <article
+          id={`panel-${solution.id}`}
+          class="solution-panel"
+          role="tabpanel"
+          aria-labelledby={`tab-${solution.id}`}
+          data-lab-panel={solution.id}
+          data-solution-need={solution.need}
+          tabindex="0"
+        >
+          <div class="solution-copy">
+            <p class="solution-index">
+              HAUSET / {solution.label.toUpperCase()}
+            </p>
+            <h3>{solution.title}</h3>
+            <p>{solution.text}</p>
+            <ul>
+              {solution.items.map((item) => (
+                <li>
+                  <Icon name="check" size={17} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p class="lab-copy-hint">
+              <span>↗</span> Tu configuración se puede sumar al proyecto.
+              Después la revisamos con vos.
+            </p>
+            <a
+              class="text-link"
+              href={whatsapp(
+                `Hola HAUSET, quiero consultar por ${solution.need.toLowerCase()}.`,
+              )}
+              data-quote-need={solution.need}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Consultar {solution.label.toLowerCase()}{' '}
+              <Icon name="arrow" size={18} />
+            </a>
+          </div>
+          <details
+            class="plan-disclosure lab-disclosure"
+            data-mobile-disclosure
+            open
+          >
+            <summary>
+              <span>Probá {solution.label.toLowerCase()} en el plano</span>
+              <Icon name="plus" size={19} />
+            </summary>
+            <div class="solution-lab" data-lab-mode={solution.id}>
+              <div class="lab-heading">
+                <span class="lab-mode-icon">
+                  <Icon name={solution.icon} size={20} />
+                </span>
+                <div>
+                  <span>EXPLORADOR / {solution.number}</span>
+                  <h4>{solution.labTitle}</h4>
+                </div>
+                <span class="lab-simulation">Simulación</span>
+              </div>
+              <p class="lab-instruction">{solution.instruction}</p>
+              <div class="lab-plan" data-lab-plan>
+                {solution.id === 'automatizacion' && (
+                  <div
+                    class="view-3d"
+                    data-plan-3d
+                    role="img"
+                    aria-labelledby={`floor-title-${solution.id} floor-desc-${solution.id}`}
+                    hidden
+                  />
+                )}
+                <svg
+                  class="lab-floorplan"
+                  viewBox="0 0 520 350"
+                  width="520"
+                  height="350"
+                  role="img"
+                  aria-labelledby={`floor-title-${solution.id} floor-desc-${solution.id}`}
+                >
+                  <title
+                    id={`floor-title-${solution.id}`}
+                  >Casa de ejemplo: sala, dormitorio, cocina, entrada y terraza</title>
+                  <desc id={`floor-desc-${solution.id}`}>
+                    Plano ilustrativo, sin escala. Los controles debajo permiten
+                    cambiar la simulación; no controla equipos reales.
+                  </desc>
+                  <defs>
+                    <pattern
+                      id={`grid-${solution.id}`}
+                      width="20"
+                      height="20"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M20 0H0v20"
+                        fill="none"
+                        stroke="#b8c9cb"
+                        stroke-opacity=".06"
+                      />
+                    </pattern>
+                    <pattern
+                      id={`hatch-${solution.id}`}
+                      width="7"
+                      height="7"
+                      patternUnits="userSpaceOnUse"
+                      patternTransform="rotate(45)"
+                    >
+                      <path d="M0 0v7" stroke="#e7ad83" stroke-width="2" />
+                    </pattern>
+                    <radialGradient id={`wave-${solution.id}`}>
+                      <stop
+                        offset="0"
+                        stop-color="#a9edc8"
+                        stop-opacity=".28"
+                      />
+                      <stop
+                        offset=".7"
+                        stop-color="#a9edc8"
+                        stop-opacity=".12"
+                      />
+                      <stop offset="1" stop-color="#a9edc8" stop-opacity="0" />
+                    </radialGradient>
+                    <clipPath id={`house-${solution.id}`}>
+                      <rect x="44" y="40" width="428" height="260" rx="4" />
+                    </clipPath>
+                  </defs>
+                  <rect
+                    width="520"
+                    height="350"
+                    fill={`url(#grid-${solution.id})`}
+                  />
+                  <g class="lab-garden" aria-hidden="true">
+                    <circle cx="24" cy="64" r="15" />
+                    <circle cx="19" cy="87" r="10" />
+                    <circle cx="496" cy="254" r="13" />
+                    <circle cx="496" cy="278" r="17" />
+                    <path d="M60 323h177m95 0h117" />
+                    <text x="260" y="328" text-anchor="middle">
+                      TERRAZA
+                    </text>
+                    <text x="21" y="207" transform="rotate(-90 21 207)">
+                      JARDÍN
+                    </text>
+                  </g>
+                  <g clip-path={`url(#house-${solution.id})`}>
+                    {rooms.map((room) => (
+                      <rect
+                        class:list={[
+                          'lab-room',
+                          {
+                            'is-on':
+                              solution.id === 'automatizacion' &&
+                              ['sala', 'dormitorio'].includes(room.id),
+                          },
+                        ]}
+                        data-lab-room={room.id}
+                        x={room.x}
+                        y={room.y}
+                        width={room.w}
+                        height={room.h}
+                        rx="3"
+                      />
+                    ))}
+                    {solution.id === 'seguridad' && (
+                      <>
+                        <path
+                          class="lab-security-cone"
+                          data-security-cone
+                          d="M374 298 288 194 466 194Z"
+                        />
+                        <path
+                          class="lab-blind-zone"
+                          data-security-blind
+                          d="M282 196h45v99h-45Z"
+                          fill={`url(#hatch-${solution.id})`}
+                          data-lab-hidden="true"
+                        />
+                        <path
+                          class="lab-patrol-line"
+                          data-security-route
+                          d="M374 288V212H453V112H310"
+                        />
+                      </>
+                    )}
+                    {solution.id === 'redes' && (
+                      <g data-network-waves>
+                        <circle
+                          class="lab-network-wave"
+                          data-network-wave="0"
+                          cx="160"
+                          cy="112"
+                          r="180"
+                          fill={`url(#wave-${solution.id})`}
+                        />
+                        <circle
+                          class="lab-network-wave"
+                          data-network-wave="1"
+                          cx="374"
+                          cy="112"
+                          r="120"
+                          fill={`url(#wave-${solution.id})`}
+                          data-lab-hidden="true"
+                        />
+                        <circle
+                          class="lab-network-wave"
+                          data-network-wave="2"
+                          cx="374"
+                          cy="245"
+                          r="120"
+                          fill={`url(#wave-${solution.id})`}
+                          data-lab-hidden="true"
+                        />
+                        <path
+                          class="lab-network-cable"
+                          data-network-cable
+                          d="M160 112H374V245"
+                          data-lab-hidden="true"
+                        />
+                        <path
+                          class="lab-extra-wall"
+                          data-network-obstacle
+                          d="M275 43v254"
+                          data-lab-hidden="true"
+                        />
+                        <rect
+                          class="lab-second-floor"
+                          data-network-floor
+                          x="280"
+                          y="44"
+                          width="188"
+                          height="254"
+                          fill={`url(#hatch-${solution.id})`}
+                          data-lab-hidden="true"
+                        />
+                      </g>
+                    )}
+                  </g>
+                  <g class="lab-furniture" aria-hidden="true">
+                    <rect x="79" y="137" width="140" height="29" rx="5" />
+                    <path d="M85 138v22m128-22v22m-122-6h117m-106-2v-13m95 13v-13" />
+                    <rect x="112" y="88" width="52" height="24" rx="9" />
+                    <rect x="333" y="75" width="96" height="80" rx="4" />
+                    <path d="M333 96h96m-88-14h31v11h-31zm41 0h37v11h-37z" />
+                    <path d="M69 216h31v63h115v-24H100m80 1v23m-59-51h63v-11h-63z" />
+                    <circle cx="82" cy="231" r="6" />
+                    <circle cx="82" cy="249" r="6" />
+                    <path d="M410 215h34v59h-34m-1-40h34m-30 46h29" />
+                    <circle cx="433" cy="287" r="5" />
+                  </g>
+                  <g class="lab-walls" aria-hidden="true">
+                    <path d="M44 40h428v94m0 32v134H44V40m232 0v119m0 32v109M44 192h163m35 0h230" />
+                    <path
+                      class="lab-door"
+                      d="M207 192v-35a35 35 0 0 1 35 35M276 159h32a32 32 0 0 1-32 32M472 134h-32a32 32 0 0 0 32 32"
+                    />
+                    <path
+                      class="lab-window"
+                      d="M87 40h87m157 0h64M44 88v55m288 157h86"
+                    />
+                  </g>
+                  <g class="lab-room-labels" aria-hidden="true">
+                    {rooms.map((room) => (
+                      <text x={room.x + 12} y={room.y + 18}>
+                        {room.label.toUpperCase()}
+                      </text>
+                    ))}
+                  </g>
+                  {solution.id === 'seguridad' && (
+                    <g
+                      class="lab-camera-position"
+                      data-security-camera
+                      transform="translate(374 298)"
+                    >
+                      <circle r="15" />
+                      <path d="M-7-5H3v10H-7zm10 3 6-3v10L3 2" />
+                    </g>
+                  )}
+                  {solution.id === 'redes' && (
+                    <g class="lab-network-nodes" aria-hidden="true">
+                      {[
+                        { x: 160, y: 112 },
+                        { x: 374, y: 112 },
+                        { x: 374, y: 245 },
+                      ].map((point, index) => (
+                        <g
+                          data-network-node={index}
+                          data-lab-hidden={index > 0 ? 'true' : undefined}
+                          transform={`translate(${point.x} ${point.y})`}
+                        >
+                          <circle r="14" />
+                          <path d="M-8-2a13 13 0 0 1 16 0m-12 4a7 7 0 0 1 8 0m-4 5h.1" />
+                        </g>
+                      ))}
+                      <g
+                        class="lab-selected-zone"
+                        data-network-selected
+                        transform="translate(374 112)"
+                      >
+                        <circle r="27" />
+                        <circle r="31" />
+                      </g>
+                    </g>
+                  )}
+                </svg>
+                {solution.id === 'automatizacion' &&
+                  rooms.map((room) => (
+                    <button
+                      type="button"
+                      class="lab-light-point"
+                      data-light-zone={room.id}
+                      aria-label={`Iluminación de ${room.label.toLowerCase()}`}
+                      title={`${room.label}: ${['sala', 'dormitorio'].includes(room.id) ? 'encendida' : 'apagada'}`}
+                      aria-pressed={
+                        ['sala', 'dormitorio'].includes(room.id)
+                          ? 'true'
+                          : 'false'
+                      }
+                      style={`--zone-x:${(room.cx / 520) * 100}%;--zone-y:${(room.cy / 350) * 100}%`}
+                    >
+                      <Icon name="sun" size={20} />
+                    </button>
+                  ))}
+                <div class="lab-map-key">
+                  <span></span>
+                  <span data-lab-legend>
+                    {solution.id === 'automatizacion'
+                      ? 'Luz encendida'
+                      : solution.id === 'seguridad'
+                        ? 'Ángulo de ejemplo'
+                        : 'Distribución ilustrativa'}
+                  </span>
+                  <span>SIN ESCALA</span>
+                </div>
+                {solution.id === 'automatizacion' && (
+                  <button
+                    type="button"
+                    class="view-toggle"
+                    data-view-toggle
+                    data-mode="3d"
+                    hidden
+                  >
+                    Vista ligera
+                  </button>
+                )}
+              </div>
+              {solution.id === 'automatizacion' && (
+                <p
+                  class="view-note"
+                  data-view-note
+                  role="status"
+                  aria-live="polite"
+                />
+              )}
+              <div class="lab-controls">
+                {solution.id === 'automatizacion' && (
+                  <>
+                    <fieldset>
+                      <legend>Una escena para tu rutina</legend>
+                      <div class="lab-choice-row" data-light-presets>
+                        {[
+                          { id: 'llegar', label: 'Llegar', icon: 'home' },
+                          { id: 'descansar', label: 'Descansar', icon: 'moon' },
+                          { id: 'salir', label: 'Salir', icon: 'lock' },
+                        ].map((scene) => (
+                          <button
+                            type="button"
+                            data-light-preset={scene.id}
+                            aria-pressed={
+                              scene.id === 'descansar' ? 'true' : 'false'
+                            }
+                          >
+                            <Icon name={scene.icon} size={17} />
+                            {scene.label}
+                          </button>
+                        ))}
+                      </div>
+                    </fieldset>
+                    <p class="lab-control-hint">
+                      Las luces del plano también son botones. Probá apagar una.
+                    </p>
+                  </>
+                )}
+                {solution.id === 'seguridad' && (
+                  <>
+                    <fieldset>
+                      <legend>¿Qué acceso querés revisar?</legend>
+                      <div class="lab-choice-row">
+                        {[
+                          { id: 'entrada', label: 'Entrada' },
+                          { id: 'lateral', label: 'Lateral' },
+                          { id: 'jardin', label: 'Jardín' },
+                        ].map((access) => (
+                          <button
+                            type="button"
+                            data-security-access={access.id}
+                            aria-pressed={
+                              access.id === 'entrada' ? 'true' : 'false'
+                            }
+                          >
+                            {access.label}
+                          </button>
+                        ))}
+                      </div>
+                    </fieldset>
+                    <div class="lab-security-options">
+                      <fieldset>
+                        <legend>Tu rutina</legend>
+                        <div class="lab-choice-row lab-choice-small">
+                          <button
+                            type="button"
+                            data-security-scenario="casa"
+                            aria-pressed="true"
+                          >
+                            En casa
+                          </button>
+                          <button
+                            type="button"
+                            data-security-scenario="fuera"
+                            aria-pressed="false"
+                          >
+                            Fuera
+                          </button>
+                        </div>
+                      </fieldset>
+                      <label class="lab-check">
+                        <input type="checkbox" data-security-blind-toggle />
+                        <span>Ver posible zona ciega</span>
+                      </label>
+                    </div>
+                  </>
+                )}
+                {solution.id === 'redes' && (
+                  <>
+                    <fieldset>
+                      <legend>Compará la distribución</legend>
+                      <div class="lab-choice-row">
+                        <button
+                          type="button"
+                          data-network-layout="router"
+                          aria-pressed="true"
+                        >
+                          <Icon name="wifi" size={17} />
+                          Router central
+                        </button>
+                        <button
+                          type="button"
+                          data-network-layout="distribuida"
+                          aria-pressed="false"
+                        >
+                          <Icon name="plus" size={17} />
+                          Puntos de acceso
+                        </button>
+                      </div>
+                    </fieldset>
+                    <div class="lab-select-row">
+                      <label>
+                        Zona que te importa
+                        <select data-network-zone>
+                          <option value="dormitorio">Dormitorio</option>
+                          <option value="sala">Sala</option>
+                          <option value="terraza">Terraza</option>
+                        </select>
+                      </label>
+                      <label>
+                        Tu espacio
+                        <select data-network-obstacle>
+                          <option value="abierto">Ambientes abiertos</option>
+                          <option value="muros">Muros entre ambientes</option>
+                          <option value="plantas">Otra planta</option>
+                        </select>
+                      </label>
+                    </div>
+                  </>
+                )}
+              </div>
+              <div
+                class="lab-result"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <span class="lab-result-icon">
+                  <Icon name={solution.icon} size={19} />
+                </span>
+                <div>
+                  <strong data-lab-result-title>
+                    {solution.id === 'automatizacion'
+                      ? 'Dos ambientes, un momento.'
+                      : solution.id === 'seguridad'
+                        ? 'La entrada, desde otro ángulo.'
+                        : 'Empezá por dónde lo usás.'}
+                  </strong>
+                  <p data-lab-result-text>
+                    {solution.id === 'automatizacion'
+                      ? 'Sala y dormitorio encendidos. El resto, en pausa.'
+                      : solution.id === 'seguridad'
+                        ? 'En casa: el ejemplo concentra la atención en el acceso exterior.'
+                        : 'El dormitorio está lejos del router en este ejemplo. La distribución merece una revisión.'}
+                  </p>
+                </div>
+              </div>
+              <p class="lab-disclaimer">
+                {solution.id === 'redes'
+                  ? 'Visualización didáctica: no mide señal ni velocidad. La cobertura real depende de materiales, equipos y una revisión del lugar.'
+                  : solution.id === 'seguridad'
+                    ? 'Ángulos ilustrativos: no garantizan cobertura ni detectan personas. La instalación requiere revisar visibilidad, privacidad y puntos ciegos.'
+                    : 'Demostración visual. No conecta equipos reales; la compatibilidad y las escenas se definen para cada proyecto.'}
+              </p>
+              <div class="lab-add-area">
+                <button type="button" class="lab-add" data-lab-add>
+                  <span>{solution.add}</span>
+                  <Icon name="plus" size={19} />
+                </button>
+                <p data-lab-added role="status" aria-live="polite"></p>
+              </div>
+              <noscript>
+                <p class="lab-no-script">
+                  Activá JavaScript para probar el plano o usá el enlace de
+                  WhatsApp de esta solución.
+                </p>
+              </noscript>
+            </div>
+          </details>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

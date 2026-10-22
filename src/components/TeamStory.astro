@@ -1,0 +1,221 @@
+---
+import Icon from './Icon.astro';
+import { asset } from '../data/site';
+---
+
+<section id="equipo" class="section team-section">
+  <span id="nosotros" class="anchor-alias" aria-hidden="true"></span>
+  <div class="container">
+    <div class="team-heading reveal">
+      <p class="eyebrow">
+        <span class="chapter-number">02</span> Mucho gusto. Somos HAUSET.
+      </p>
+      <h2>
+        Antes de conectar tu casa,
+        <br />
+        <em>conectamos con vos.</em>
+      </h2>
+    </div>
+    <div class="team-grid">
+      <figure class="team-photo reveal">
+        <img
+          src={asset('images/team-real.webp')}
+          width="1024"
+          height="906"
+          alt="Cinco integrantes reales del equipo HAUSET juntos, sonriendo y con su uniforme"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          <span class="live-dot"></span> EQUIPO REAL. PURA VIDA REAL.
+        </figcaption>
+      </figure>
+      <div class="team-copy reveal">
+        <span class="team-handwritten">
+          La tecnología tiene un lado humano.
+        </span>
+        <p class="team-lead">
+          Somos los que escuchan tu idea, te explican las opciones y se
+          arremangan para hacerla realidad.
+        </p>
+        <p>
+          Desde Costa Rica, integramos automatización, seguridad y redes para
+          hogares y negocios. Con soluciones a tu medida y acompañamiento
+          después de la instalación.
+        </p>
+        <div class="team-principles">
+          <span>
+            <Icon name="check" size={17} /> Te hablamos claro.
+          </span>
+          <span>
+            <Icon name="check" size={17} /> Diseñamos con tu presupuesto en
+            mente.
+          </span>
+          <span>
+            <Icon name="check" size={17} /> Te enseñamos a usar tu solución.
+          </span>
+        </div>
+        <a href="#tu-proyecto" data-quote-entry="team" class="text-link">
+          Quiero conversar con el equipo <Icon name="arrow" size={20} />
+        </a>
+        <div class="founders-mini">
+          <img
+            src={asset('images/founders-real.webp')}
+            width="1024"
+            height="877"
+            alt="Dos integrantes del equipo HAUSET conversando durante un evento"
+            loading="lazy"
+          />
+          <span>
+            Personas cercanas.
+            <br />
+            <strong>Ideas bien conectadas.</strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<details class="story-drawer" data-mobile-disclosure open>
+  <summary>
+    <img
+      src={asset('images/technician-real.webp')}
+      width="908"
+      height="1024"
+      alt=""
+      loading="lazy"
+    />
+    <span>
+      <small>UN VISTAZO A NUESTRO MUNDO</small>
+      <strong>Así se siente HAUSET.</strong>
+      <span>Una escena y un video para descubrir.</span>
+    </span>
+    <Icon name="plus" size={22} />
+  </summary>
+  <section class="story-section" id="proyectos">
+    <img
+      class="story-image"
+      src={asset('images/installation-story.webp')}
+      width="1200"
+      height="675"
+      alt="Escena ilustrativa del equipo HAUSET diseñando una solución tecnológica, creada con IA"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="story-shade"></div>
+    <div class="container story-content">
+      <p class="eyebrow light reveal">
+        <span></span> Así nos gusta trabajar
+      </p>
+      <h2 class="reveal">
+        Menos complicaciones.
+        <br />
+        <em>Más vida.</em>
+      </h2>
+      <div class="story-bottom reveal">
+        <p>
+          Nos contás tu necesidad. Diseñamos la solución.
+          <br />
+          La instalamos y te acompañamos a disfrutarla.
+        </p>
+        <a
+          href="#tu-proyecto"
+          class="button button-primary"
+          data-quote-entry="story"
+        >
+          Preparar mi consulta <Icon name="arrow" size={19} />
+        </a>
+      </div>
+      <span class="story-credit">
+        Visualización creada con IA a partir del equipo real. No representa un
+        proyecto documentado.
+      </span>
+    </div>
+  </section>
+  <section class="video-section section">
+    <div class="container video-layout">
+      <div class="video-copy reveal">
+        <p class="eyebrow">
+          <span></span> Una pausa para descubrir
+        </p>
+        <h2>
+          La tecnología se entiende
+          <br />
+          <em>cuando la ves.</em>
+        </h2>
+        <p>
+          Una mirada en video al mundo de los espacios conectados. Dale play
+          cuando querás.
+        </p>
+        <button
+          class="text-link video-open"
+          aria-haspopup="dialog"
+          aria-controls="story-dialog"
+        >
+          Ver el video{' '}
+          <span class="play-circle">
+            <svg
+              width="12"
+              height="14"
+              viewBox="0 0 12 14"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="m1 1 10 6L1 13V1Z" />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button
+        class="video-preview video-open reveal"
+        aria-haspopup="dialog"
+        aria-controls="story-dialog"
+        aria-label="Reproducir video compartido de tecnología"
+      >
+        <img
+          src={asset('video/poster.webp')}
+          width="720"
+          height="1280"
+          alt="Fotograma del video compartido sobre tecnología"
+          loading="lazy"
+        />
+        <span class="video-preview-shade"></span>
+        <span class="video-play">
+          <svg
+            width="20"
+            height="24"
+            viewBox="0 0 20 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="m2 2 16 10L2 22V2Z" />
+          </svg>
+        </span>
+        <span class="video-caption">
+          UNA MIRADA MÁS CERCA <Icon name="arrow" size={19} />
+        </span>
+      </button>
+    </div>
+  </section>
+</details>
+<dialog
+  id="story-dialog"
+  class="video-dialog"
+  aria-label="Video compartido de tecnología"
+>
+  <button class="video-close" autofocus aria-label="Cerrar video">
+    <Icon name="close" size={23} />
+  </button>
+  <video
+    id="story-video"
+    controls
+    playsinline
+    preload="none"
+    poster={asset('video/poster.webp')}
+  >
+    <source src={asset('video/team-story.mp4')} type="video/mp4" />
+    Tu navegador no reproduce este video.{' '}
+    <a href={asset('video/team-story.mp4')}>Abrilo directamente.</a>
+  </video>
+  <p>Material compartido para esta página.</p>
+</dialog>

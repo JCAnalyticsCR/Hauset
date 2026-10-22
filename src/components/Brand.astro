@@ -1,0 +1,21 @@
+---
+import { asset } from '../data/site';
+interface Props {
+  footer?: boolean;
+}
+const { footer = false } = Astro.props;
+---
+
+<a
+  href={footer ? `${asset('')}#inicio` : '#inicio'}
+  class="brand"
+  aria-label="HAUSET, inicio"
+>
+  <img
+    src={asset('images/logo.png')}
+    width="390"
+    height="104"
+    alt="HAUSET"
+    class="brand-logo"
+  />
+</a>

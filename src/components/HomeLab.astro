@@ -1,0 +1,348 @@
+---
+import Icon from './Icon.astro';
+---
+
+<div
+  class="home-console home-lab"
+  aria-label="Simulador de un hogar inteligente"
+  data-light="80"
+  data-armed="false"
+  data-custom="false"
+>
+  <div class="console-top">
+    <span>
+      <span class="live-dot"></span> HAUSET HOME
+    </span>
+    <span class="console-demo">SIMULADOR</span>
+  </div>
+  <div class="console-intro">
+    <span class="console-time" aria-label="Hora en Costa Rica"></span>
+    <p>Un toque cambia tu espacio.</p>
+    <h2 id="scene-title">Ya estás en casa.</h2>
+  </div>
+
+  <div
+    class="room-stage"
+    aria-label="Vista interactiva de una sala. Usá los controles para cambiar el ambiente."
+  >
+    <div
+      class="view-3d"
+      data-room-3d
+      role="img"
+      aria-labelledby="room-description"
+      hidden
+    ></div>
+    <svg
+      class="live-room"
+      viewBox="0 0 480 285"
+      fill="none"
+      role="img"
+      aria-labelledby="room-description"
+    >
+      <title id="room-description">Sala ilustrada: luz al 80%, cortinas abiertas y alarma en modo hogar.</title>
+      <defs>
+        <linearGradient
+          id="room-wall"
+          x1="100"
+          y1="25"
+          x2="400"
+          y2="220"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#34454a" />
+          <stop offset="1" stop-color="#172a30" />
+        </linearGradient>
+        <linearGradient
+          id="room-floor"
+          x1="240"
+          y1="140"
+          x2="240"
+          y2="280"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#7e796c" />
+          <stop offset="1" stop-color="#343e3e" />
+        </linearGradient>
+        <linearGradient
+          id="room-sky"
+          x1="342"
+          y1="38"
+          x2="342"
+          y2="140"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#8b8d9c" />
+          <stop offset=".6" stop-color="#d0b4a0" />
+          <stop offset="1" stop-color="#5a7a6f" />
+        </linearGradient>
+        <radialGradient id="room-glow">
+          <stop stop-color="var(--lamp-color, #ffcd82)" stop-opacity=".65" />
+          <stop
+            offset="1"
+            stop-color="var(--lamp-color, #ffcd82)"
+            stop-opacity="0"
+          />
+        </radialGradient>
+        <linearGradient
+          id="room-beam"
+          x1="160"
+          y1="83"
+          x2="160"
+          y2="214"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="var(--lamp-color, #ffcd82)" stop-opacity=".3" />
+          <stop
+            offset="1"
+            stop-color="var(--lamp-color, #ffcd82)"
+            stop-opacity="0"
+          />
+        </linearGradient>
+        <clipPath id="room-window-clip">
+          <path d="m299 47 99-18v100l-99 20z" />
+        </clipPath>
+      </defs>
+      <ellipse cx="242" cy="254" rx="211" ry="25" fill="#0a141b" opacity=".5" />
+      <path d="M42 182 237 135l202 57-195 78z" fill="url(#room-floor)" />
+      <path d="M42 182V50l195-29v114z" fill="#34474b" />
+      <path d="M237 21 439 1v191l-202-57z" fill="url(#room-wall)" />
+      <path
+        d="M42 182 237 135l202 57M237 21v114"
+        stroke="#b7cac3"
+        stroke-opacity=".2"
+      />
+      <path
+        d="M87 193 279 147m-142 65 194-51m-144 70 197-54m-145 73 198-58"
+        stroke="#c6bfaa"
+        stroke-opacity=".12"
+      />
+      <path
+        d="m299 47 99-18v100l-99 20z"
+        fill="url(#room-sky)"
+        stroke="#abb6b1"
+        stroke-width="4"
+      />
+      <g clip-path="url(#room-window-clip)">
+        <path d="m280 136 40-39 29 22 40-35 24 35v50H280z" fill="#41665c" />
+        <path d="m282 143 28-26 26 24 34-32 54 26v46H282z" fill="#294c44" />
+        <path d="M346 32v108" stroke="#a8b5af" stroke-width="3" />
+        <g class="room-curtains">
+          <path d="M292 22h117v141H292z" fill="#c6bfae" />
+          <path
+            d="M301 20v146m12-146v146m12-146v146m12-146v146m12-146v146m12-146v146m12-146v146m12-146v146m12-146v146"
+            stroke="#8d948e"
+            stroke-width="3"
+            opacity=".6"
+          />
+          <path d="M294 159h116" stroke="#ded8c7" stroke-width="5" />
+        </g>
+      </g>
+      <path d="m66 76 79-11v64l-79 17z" fill="#172b32" stroke="#708077" />
+      <path d="m81 123 18-24 18 10 18-29" stroke="#b9baa1" stroke-width="2" />
+      <path d="m103 204 142-36 102 34-131 50z" fill="#b5b3a3" opacity=".35" />
+      <path d="m96 143 113-25 38 14v56l-115 34-36-20z" fill="#566e69" />
+      <path d="m98 143 111-25 1 42-112 29z" fill="#9aa79a" />
+      <path d="m98 184 112-28 37 18-115 33z" fill="#b8bdb0" />
+      <path d="m132 207 115-33v14l-115 34z" fill="#72897f" />
+      <path d="m94 157 15-3 14 8v43l-14 4-15-9z" fill="#a2b2a0" />
+      <path d="m220 128 16-3 15 9v44l-16 5-15-8z" fill="#a2b2a0" />
+      <path d="m122 150 29-7v27l-29 7z" fill="#ded4b9" />
+      <path d="m166 140 28-6v28l-28 7z" fill="#7c8a76" />
+      <path d="m111 209v14m127-32v12" stroke="#15292c" stroke-width="5" />
+      <ellipse cx="281" cy="214" rx="44" ry="16" fill="#15272a" opacity=".4" />
+      <path d="M250 196v26m61-26v26" stroke="#2a3e40" stroke-width="5" />
+      <ellipse cx="281" cy="194" rx="44" ry="16" fill="#c3a88b" />
+      <ellipse cx="281" cy="192" rx="44" ry="16" fill="#dec6a5" />
+      <path d="m269 184 21-3 9 7-21 4z" fill="#4c6760" />
+      <path d="M373 175h28l-4 28h-20z" fill="#b4a997" />
+      <path
+        d="M387 177v-49m0 26c-25-4-26-24-26-24 25-1 26 24 26 24m0-11s3-28 24-30c1 24-24 30-24 30m0 22s11-21 28-18c-4 22-28 18-28 18"
+        fill="#739b7c"
+      />
+      <g class="room-lamp-light">
+        <ellipse cx="159" cy="173" rx="125" ry="94" fill="url(#room-glow)" />
+        <path d="m146 75-62 136h158L174 75z" fill="url(#room-beam)" />
+      </g>
+      <path d="M160 1v51" stroke="#c0b698" stroke-width="2" />
+      <path d="m143 53-14 24c13 12 46 12 60 0l-13-24z" fill="#b6a684" />
+      <ellipse cx="159" cy="77" rx="30" ry="7" fill="#3c443e" />
+      <ellipse
+        class="room-bulb"
+        cx="159"
+        cy="78"
+        rx="25"
+        ry="4"
+        fill="var(--lamp-color, #ffcd82)"
+      />
+      <g class="room-security-ring">
+        <path
+          d="M50 186 237 142l193 54-186 65z"
+          stroke="#c7f4d8"
+          stroke-width="2"
+          stroke-dasharray="7 7"
+        />
+        <path
+          d="m246 38-10 4v10c0 8 10 13 10 13s10-5 10-13V42z"
+          fill="#193e35"
+          stroke="#c7f4d8"
+        />
+        <path d="m241 51 4 4 6-8" stroke="#c7f4d8" stroke-width="2" />
+      </g>
+    </svg>
+    <button
+      class="room-hotspot room-hotspot-light"
+      type="button"
+      aria-label="Luz de la sala"
+      aria-pressed="true"
+      data-room-light
+    >
+      <Icon name="sun" size={18} />
+    </button>
+    <button
+      class="room-hotspot room-hotspot-curtain"
+      type="button"
+      aria-label="Cortinas cerradas"
+      aria-pressed="false"
+      data-room-curtains
+    >
+      <span aria-hidden="true">▥</span>
+    </button>
+    <span class="room-live-label">
+      <span></span> TU ESCENA, EN TIEMPO REAL
+    </span>
+    <span class="room-custom-label" hidden>
+      A tu manera
+    </span>
+    <button
+      type="button"
+      class="view-toggle"
+      data-view-toggle
+      data-mode="3d"
+      hidden
+    >
+      Vista ligera
+    </button>
+  </div>
+  <div
+    class="scene-buttons"
+    role="group"
+    aria-label="Elegí una escena de demostración"
+  >
+    <button
+      type="button"
+      data-scene="welcome"
+      aria-pressed="true"
+      class="active"
+    >
+      <Icon name="home" size={18} />
+      <span>Llegar</span>
+    </button>
+    <button type="button" data-scene="cinema" aria-pressed="false">
+      <Icon name="moon" size={18} />
+      <span>Cine</span>
+    </button>
+    <button type="button" data-scene="away" aria-pressed="false">
+      <Icon name="lock" size={18} />
+      <span>Salir</span>
+    </button>
+  </div>
+  <p class="home-scene-summary" id="home-scene-summary">
+    Luz 80% · Cortinas abiertas · Modo hogar
+  </p>
+  <p class="view-note" data-view-note role="status" aria-live="polite"></p>
+  <details class="console-details">
+    <summary>
+      <span>
+        <Icon name="spark" size={17} /> Creá tu propio ambiente
+      </span>
+      <Icon name="plus" size={17} />
+    </summary>
+    <div class="home-custom-controls">
+      <div class="light-control">
+        <label for="light-level">
+          <span>
+            <Icon name="sun" size={17} /> Luz de la sala
+          </span>
+          <output id="light-output" for="light-level">
+            80%
+          </output>
+        </label>
+        <input
+          id="light-level"
+          type="range"
+          min="0"
+          max="100"
+          value="80"
+          aria-label="Intensidad de la luz de la sala"
+        />
+      </div>
+      <div class="home-tone-control" role="group" aria-label="Tono de la luz">
+        <span>Tono de luz</span>
+        <div>
+          <button type="button" data-tone="warm" aria-pressed="true">
+            Cálida
+          </button>
+          <button type="button" data-tone="neutral" aria-pressed="false">
+            Neutra
+          </button>
+          <button type="button" data-tone="cool" aria-pressed="false">
+            Fría
+          </button>
+        </div>
+      </div>
+      <div class="light-control curtain-control">
+        <label for="curtain-level">
+          <span>Cortinas abiertas</span>
+          <output id="curtain-output" for="curtain-level">
+            100%
+          </output>
+        </label>
+        <input
+          id="curtain-level"
+          type="range"
+          min="0"
+          max="100"
+          value="100"
+          aria-label="Porcentaje de apertura de cortinas"
+        />
+      </div>
+      <button
+        type="button"
+        class="home-security-control"
+        role="switch"
+        aria-label="Alarma de demostración"
+        aria-describedby="security-state"
+        aria-checked="false"
+        id="home-security"
+      >
+        <span>
+          <Icon name="shield" size={18} />
+          <span>
+            Alarma <small id="security-state">Modo hogar</small>
+          </span>
+        </span>
+        <span class="home-switch" aria-hidden="true"></span>
+      </button>
+    </div>
+  </details>
+  <p
+    class="scene-feedback"
+    id="scene-feedback"
+    role="status"
+    aria-live="polite"
+  >
+    Tocá la luz o la ventana. El ambiente responde.
+  </p>
+  <button class="home-add-project" type="button" id="home-add-project">
+    <span>Sumar esta escena a mi consulta</span>
+    <Icon name="arrow" size={18} />
+  </button>
+  <p class="home-simulation-note">
+    Vista ilustrativa. Estos controles no operan equipos reales.
+  </p>
+  <noscript>
+    <p class="home-simulation-note">
+      Activá JavaScript para probar los controles.
+    </p>
+  </noscript>
+</div>

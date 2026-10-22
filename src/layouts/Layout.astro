@@ -1,0 +1,96 @@
+---
+import '../styles/experience.css';
+import '../styles/mobile.css';
+import '../styles/home-lab.css';
+import '../styles/solutions-lab.css';
+import '../styles/quote-studio.css';
+import '../styles/hero-invitation.css';
+import '../styles/home-experience-dialog.css';
+import '../styles/three-d.css';
+import { asset, site } from '../data/site';
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+const {
+  title = 'HAUSET · Tecnología a tu manera | Costa Rica',
+  description = site.description,
+  noindex = false,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL(asset('og.png'), Astro.site);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'HAUSET',
+  url: new URL(asset(''), Astro.site).href,
+  description: site.description,
+  telephone: '+50660902549',
+  email: site.email,
+  image: image.href,
+  areaServed: { '@type': 'Country', name: 'Costa Rica' },
+  sameAs: [site.instagram],
+  knowsAbout: [
+    'Automatización del hogar',
+    'Cámaras de seguridad',
+    'Redes WiFi',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es-CR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101724" />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, follow' : 'index, follow'}
+    />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={asset('apple-touch-icon.png')} />
+    <link rel="sitemap" type="application/xml" href={asset('sitemap.xml')} />
+    <link
+      rel="preload"
+      href={asset('fonts/inter-latin-variable.woff2')}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:site_name" content="HAUSET" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="HAUSET · Automatización, seguridad y redes en Costa Rica"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema).replace(/</g, '\\u003c')}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">
+      Saltar al contenido
+    </a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,553 @@
+/* Loaded after the shared and mobile styles. All overrides stay in the quote studio. */
+.quote-studio {
+  --quote-line: #dce2d9;
+  --quote-muted: #59685e;
+  min-width: 0;
+  padding: clamp(22px, 3.5vw, 42px);
+  background: #fff;
+  border: 1px solid var(--quote-line);
+  border-radius: 22px;
+  box-shadow: 0 18px 60px #12231b08;
+}
+.quote-studio button,
+.quote-studio select,
+.quote-studio input,
+.quote-studio textarea {
+  font: inherit;
+}
+.quote-studio button {
+  touch-action: manipulation;
+}
+.quote-studio .wizard-top {
+  margin-bottom: 20px;
+  color: #4b5a50;
+}
+.quote-step-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+.quote-step-nav button {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 8px;
+  background: #f5f7f2;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: left;
+}
+.quote-step-nav button > span {
+  color: #69766c;
+  font-size: 10px;
+}
+.quote-step-nav button[aria-current] {
+  background: #e6f6e9;
+  border-color: #a0c8a8;
+  color: #173b24;
+}
+.quote-step-nav button:disabled {
+  opacity: 0.56;
+}
+.quote-studio .wizard-question {
+  font-size: clamp(25px, 2.6vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+  margin: 0;
+  scroll-margin-top: 100px;
+}
+.quote-intro {
+  color: var(--quote-muted);
+  margin: 12px 0 22px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.quote-studio .property-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+.quote-studio .property-options > button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 134px;
+  padding: 19px 16px;
+  gap: 11px;
+  background: #f7f8f4;
+  border: 1px solid var(--quote-line);
+  border-radius: 12px;
+  text-align: left;
+}
+.quote-studio .property-options > button > strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.quote-studio .property-options > button > span {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--quote-muted);
+}
+.quote-studio .property-options > button > svg:last-child {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  opacity: 0;
+}
+.quote-studio .property-options > button[aria-pressed='true'],
+.quote-studio .needs-options > button[aria-pressed='true'] {
+  background: #edf8ed;
+  border-color: #4f7d58;
+  box-shadow: inset 0 0 0 1px #4f7d58;
+}
+.quote-studio .property-options > button[aria-pressed='true'] > svg:last-child,
+.quote-studio .needs-options > button[aria-pressed='true'] > svg:last-child {
+  opacity: 1;
+}
+.quote-studio .needs-options {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+}
+.quote-studio .needs-options > button {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 72px;
+  padding: 13px 15px;
+  border: 1px solid var(--quote-line);
+  border-radius: 11px;
+  background: #f7f8f4;
+  text-align: left;
+  font-size: 13px;
+}
+.quote-studio .needs-options > button > span {
+  flex: 1;
+}
+.quote-studio .needs-options strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.quote-studio .needs-options small {
+  display: block;
+  color: var(--quote-muted);
+  font-size: 10px;
+  line-height: 1.5;
+  margin-top: 3px;
+}
+.quote-studio .needs-options > button > svg:last-child {
+  opacity: 0;
+}
+.quote-disclosure {
+  border: 1px solid var(--quote-line);
+  border-radius: 10px;
+  margin-top: 14px;
+  background: transparent;
+}
+.quote-studio .quote-disclosure > summary {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 52px;
+  padding: 14px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  list-style: none;
+}
+.quote-disclosure > summary::-webkit-details-marker,
+.quote-draft-panel > summary::-webkit-details-marker {
+  display: none;
+}
+.quote-disclosure > summary > span {
+  margin-left: auto;
+  color: var(--quote-muted);
+  font-size: 10px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.quote-disclosure > summary > svg:last-child {
+  margin-left: auto;
+}
+.quote-disclosure > summary > span + svg {
+  margin-left: 0;
+}
+.quote-disclosure[open] > summary > svg:last-child {
+  transform: rotate(45deg);
+}
+.quote-disclosure-body {
+  padding: 4px 15px 16px;
+}
+.quote-studio .field {
+  margin-top: 15px;
+}
+.quote-studio .field:first-child {
+  margin-top: 0;
+}
+.quote-studio .field label {
+  display: block;
+  color: #344539;
+  font-size: 11px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.quote-studio .field label span {
+  color: var(--quote-muted);
+  font-size: 10px;
+  margin-left: 3px;
+}
+.quote-studio .field input,
+.quote-studio .field textarea,
+.quote-studio .field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #cad4c8;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a2b20;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.quote-studio .field textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+.quote-studio .field input[aria-invalid='true'] {
+  border-color: #a93e2b;
+}
+.quote-dimensions {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.quote-dimensions .field {
+  margin-top: 0;
+  min-width: 0;
+}
+.quote-help {
+  color: var(--quote-muted);
+  font-size: 10px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.quote-guidance ul {
+  padding-left: 18px;
+  margin: 0;
+  color: #3a5241;
+  font-size: 12px;
+  line-height: 1.75;
+}
+.quote-guidance li + li {
+  margin-top: 10px;
+}
+.quote-studio .wizard-actions.quote-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 22px;
+}
+.quote-studio .quote-actions > .button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 52px;
+  padding: 15px 18px;
+  border: 0;
+  border-radius: 9px;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.quote-studio .wizard-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 0;
+  background: none;
+  color: #475c4d;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.quote-studio .wizard-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+.quote-studio .wizard-summary > button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cadcc8;
+  background: #f0f6ed;
+  color: #2a5034;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.quote-studio .wizard-summary > button::after {
+  content: '↗';
+  color: #55735b;
+}
+.quote-context-line {
+  color: var(--quote-muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+}
+.quote-items {
+  list-style: none;
+  margin: 0;
+  padding: 0 12px 12px;
+}
+.quote-items li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0 7px 4px;
+  border-top: 1px solid #e8ece6;
+}
+.quote-items li > span {
+  flex: 1;
+  min-width: 0;
+  color: #2c4735;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.quote-items li small {
+  display: block;
+  color: var(--quote-muted);
+  font-size: 9px;
+  margin-top: 2px;
+}
+.quote-items li > button {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  background: #f1f5ed;
+  border: 1px solid var(--quote-line);
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.quote-studio #brief-preview {
+  margin: 0;
+  padding: 0 15px 18px;
+  font:
+    11px/1.8 Inter,
+    sans-serif;
+  color: #334e3b;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.quote-export-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.quote-export-actions > button {
+  min-height: 48px;
+  background: #f5f7f1;
+  border: 1px solid var(--quote-line);
+  border-radius: 8px;
+  color: #334e3b;
+  font-size: 10px;
+  padding: 11px 8px;
+}
+.quote-review-back {
+  margin: 5px auto 0;
+}
+.quote-studio .wizard-privacy {
+  margin: 12px 0 0;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--quote-muted);
+}
+.quote-studio .wizard-privacy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.quote-error {
+  color: #963c27;
+  background: #fff5ef;
+  border: 1px solid #e4b6a3;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.quote-feedback {
+  color: #3d5e46;
+  font-size: 11px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.quote-feedback:not(:empty) {
+  border-top: 1px solid var(--quote-line);
+  padding-top: 15px;
+  margin-top: 18px;
+}
+.quote-draft-panel {
+  border-top: 1px solid var(--quote-line);
+  margin-top: 20px;
+}
+.quote-draft-panel > summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 52px;
+  padding: 16px 0 4px;
+  list-style: none;
+  cursor: pointer;
+  color: #526455;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.quote-draft-panel > summary > svg:last-child {
+  margin-left: auto;
+}
+.quote-draft-panel[open] > summary > svg:last-child {
+  transform: rotate(45deg);
+}
+.quote-draft-body > p {
+  margin-top: 12px;
+  font-size: 10px;
+  line-height: 1.85;
+  color: var(--quote-muted);
+}
+.quote-draft-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.quote-draft-actions > button {
+  flex: 1 1 120px;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid var(--quote-line);
+  border-radius: 8px;
+  background: #f7f8f3;
+  font-size: 10px;
+}
+.quote-studio [aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (max-width: 650px) {
+  .quote-studio {
+    padding: 23px 18px;
+    border-radius: 16px;
+    scroll-margin-top: calc(85px + env(safe-area-inset-top, 0px));
+  }
+  .quote-studio .wizard-top {
+    margin-bottom: 17px;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+  .quote-studio .wizard-top > span:last-child {
+    font-size: 9px;
+  }
+  .quote-step-nav {
+    margin-bottom: 24px;
+    gap: 5px;
+  }
+  .quote-step-nav button {
+    min-height: 48px;
+    padding: 9px 7px;
+    gap: 5px;
+    font-size: 10px;
+  }
+  .quote-step-nav button > span {
+    font-size: 8px;
+  }
+  .quote-studio .wizard-question {
+    font-size: 27px;
+    scroll-margin-top: calc(94px + env(safe-area-inset-top, 0px));
+  }
+  .quote-intro {
+    font-size: 11px;
+    margin: 11px 0 18px;
+  }
+  .quote-studio .property-options {
+    gap: 8px;
+  }
+  .quote-studio .property-options > button {
+    min-height: 130px;
+    padding: 17px 12px;
+    gap: 10px;
+  }
+  .quote-studio .property-options > button > strong {
+    font-size: 15px;
+  }
+  .quote-studio .property-options > button > span {
+    font-size: 10px;
+  }
+  .quote-studio .needs-options > button {
+    min-height: 69px;
+    padding: 12px;
+  }
+  .quote-studio .field input,
+  .quote-studio .field textarea,
+  .quote-studio .field select {
+    font-size: 16px;
+  }
+  .quote-studio .quote-disclosure > summary {
+    font-size: 10px;
+    padding: 12px;
+    gap: 8px;
+  }
+  .quote-disclosure > summary > span {
+    font-size: 9px;
+  }
+  .quote-disclosure-body {
+    padding: 3px 12px 14px;
+  }
+  .quote-dimensions {
+    gap: 8px;
+  }
+  .quote-studio .quote-actions > .button {
+    font-size: 11px;
+    min-height: 52px;
+    padding: 14px;
+  }
+  .quote-studio .wizard-summary > button {
+    font-size: 9px;
+    padding: 10px;
+  }
+  .quote-studio .quote-draft-panel > summary {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quote-studio *,
+  .quote-studio *::before,
+  .quote-studio *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
