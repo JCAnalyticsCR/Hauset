@@ -49,7 +49,7 @@ También podés servir una compilación local con `npm start`.
 2. En **Settings → Pages → Build and deployment → Source**, elegí **GitHub Actions**.
 3. Hacé push a `main` o ejecutá **Publicar en GitHub Pages** en la pestaña Actions.
 
-El workflow instala con `npm ci`, genera `dist/` y lo publica. Detecta automáticamente el dominio y la subruta del repositorio: funciona en `https://usuario.github.io/hausetcr/` y en un sitio de usuario `https://usuario.github.io/`.
+Este repositorio ya tiene Pages configurado con GitHub Actions. El workflow instala con `npm ci`, genera `dist/` y lo publica. Detecta automáticamente el dominio y la subruta del repositorio: funciona en `https://usuario.github.io/hausetcr/` y en un sitio de usuario `https://usuario.github.io/`.
 
 Podés definir estas variables en **Settings → Secrets and variables → Actions → Variables**:
 
@@ -122,4 +122,4 @@ La casa interactiva, el explorador y la ficha comparten preferencias mediante ev
 - La página de privacidad describe el uso de WhatsApp. Los datos del asistente no se envían a un servidor de HAUSET desde este sitio.
 - No se incluyen testimonios sin autorización, cifras de satisfacción sin respaldo ni analítica activa.
 
-El código se aloja en el repositorio [JCAnalyticsCR/Hauset](https://github.com/JCAnalyticsCR/Hauset). Todavía no hay un sitio publicado ni cambios de DNS, y nunca se enviaron correos desde este proyecto.
+El código se aloja en el repositorio público [JCAnalyticsCR/Hauset](https://github.com/JCAnalyticsCR/Hauset). GitHub Pages publica el sitio en [jcanalyticscr.github.io/Hauset](https://jcanalyticscr.github.io/Hauset/) con cada push a `main`. El dominio hausetcr.com todavía muestra el sitio anterior: no se han cambiado DNS y nunca se enviaron correos desde este proyecto.
